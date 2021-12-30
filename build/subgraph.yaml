@@ -1,0 +1,120 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: PapaStakingV1
+    network: avalanche
+    source:
+      address: "0xde698Aa043F4A9548AAc041434473E9e53991430"
+      abi: PapaStaking
+      startBlock: 7546927
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PapaStaking
+      abis:
+        - name: PapaStaking
+          file: PapaStakingV1\abis\PapaStaking.json
+        - name: StakingHelper
+          file: PapaStakingV1\abis\StakingHelper.json
+        - name: sPapaERC20
+          file: PapaStakingV1\abis\sPapaERC20.json
+        - name: PapaERC20
+          file: PapaStakingV1\abis\PapaERC20.json
+        - name: UniswapV2Pair
+          file: PapaStakingV1\abis\UniswapV2Pair.json
+        - name: ERC20
+          file: PapaStakingV1\abis\ERC20.json
+        - name: CirculatingSupply
+          file: PapaStakingV1\abis\CirculatingSupply.json
+      callHandlers:
+        - function: stake(uint256,address)
+          handler: handleStake
+        - function: unstake(uint256,bool)
+          handler: handleUnstake
+      file: PapaStakingV1\PapaStakingV1.wasm
+  - kind: ethereum/contract
+    name: PapaStakingV2
+    network: avalanche
+    source:
+      address: "0x3875AC1F19E05813000F02414b3141DC3Ff991B6"
+      abi: PapaStaking
+      startBlock: 7708803
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PapaStaking
+      abis:
+        - name: PapaStaking
+          file: PapaStakingV2\abis\PapaStaking.json
+        - name: StakingHelper
+          file: PapaStakingV2\abis\StakingHelper.json
+        - name: sPapaERC20
+          file: PapaStakingV2\abis\sPapaERC20.json
+        - name: PapaERC20
+          file: PapaStakingV2\abis\PapaERC20.json
+        - name: UniswapV2Pair
+          file: PapaStakingV2\abis\UniswapV2Pair.json
+        - name: ERC20
+          file: PapaStakingV2\abis\ERC20.json
+        - name: CirculatingSupply
+          file: PapaStakingV2\abis\CirculatingSupply.json
+      callHandlers:
+        - function: stake(uint256,address)
+          handler: handleStake
+        - function: unstake(uint256,bool)
+          handler: handleUnstake
+      file: PapaStakingV1\PapaStakingV1.wasm
+  - kind: ethereum/contract
+    name: sPapaERC20V1
+    network: avalanche
+    source:
+      address: "0x5Ee5fDd4077CaC9138BB854FAED2A40B2482cFd9"
+      abi: sPapaERC20
+      startBlock: 7544366
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - sPapaERC20
+      abis:
+        - name: sPapaERC20
+          file: sPapaERC20V1\abis\sPapaERC20.json
+        - name: PapaERC20
+          file: sPapaERC20V1\abis\PapaERC20.json
+        - name: UniswapV2Pair
+          file: sPapaERC20V1\abis\UniswapV2Pair.json
+      callHandlers:
+        - function: rebase(uint256,uint256)
+          handler: rebaseFunction
+      file: sPapaERC20V1\sPapaERC20V1.wasm
+  - kind: ethereum/contract
+    name: sPapaERC20V2
+    network: avalanche
+    source:
+      address: "0xDd8E1245F8B285672111C9e4051504D654f4d43A"
+      abi: sPapaERC20
+      startBlock: 7708656
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - sPapaERC20
+      abis:
+        - name: sPapaERC20
+          file: sPapaERC20V2\abis\sPapaERC20.json
+        - name: PapaERC20
+          file: sPapaERC20V2\abis\PapaERC20.json
+        - name: UniswapV2Pair
+          file: sPapaERC20V2\abis\UniswapV2Pair.json
+      callHandlers:
+        - function: rebase(uint256,uint256)
+          handler: rebaseFunction
+      file: sPapaERC20V2\sPapaERC20V2.wasm

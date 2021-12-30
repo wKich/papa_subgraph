@@ -1,0 +1,42 @@
+type Rebase @entity {
+  id: ID!
+  transaction: String!
+  amount: BigDecimal!
+  stakedPapas: BigDecimal!
+  percentage: BigDecimal!
+  contract: String!
+  timestamp: BigInt!
+  value: BigDecimal!
+}
+
+type ProtocolMetric @entity {
+  id: ID!
+  timestamp: BigInt!
+  papaCirculatingSupply: BigDecimal!
+  sPapaCirculatingSupply: BigDecimal!
+  totalSupply: BigDecimal!
+  papaPrice: BigDecimal!
+  marketCap: BigDecimal!
+  totalValueLocked: BigDecimal!
+  treasuryRiskFreeValue: BigDecimal!
+  treasuryMarketValue: BigDecimal!
+  treasuryInvestments: BigDecimal!
+  nextEpochRebase: BigDecimal!
+  nextDistributedPapa: BigDecimal!
+  treasuryUsdtRiskFreeValue: BigDecimal!
+  treasuryWAVAXRiskFreeValue: BigDecimal!
+  treasuryMIMRiskFreeValue: BigDecimal!
+  treasuryUsdtMarketValue: BigDecimal!
+  treasuryWAVAXMarketValue: BigDecimal!
+  treasuryMIMMarketValue: BigDecimal!
+  currentAPY: BigDecimal!
+  runwayCurrent: BigDecimal
+  treasuryPapaMimPOL: BigDecimal!
+  treasuryPapaAvaxPOL: BigDecimal!
+}
+
+type LastBlock @entity {
+  id: ID!
+  number: BigInt!
+  timestamp: BigInt!
+}
