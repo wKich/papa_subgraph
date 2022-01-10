@@ -267,7 +267,6 @@ export function updateProtocolMetrics(blockNumber: BigInt, timestamp: BigInt): v
     pm.treasuryWAVAXMarketValue = mv_rfv[7]
     pm.treasuryPapaMimPOL = mv_rfv[8]
     pm.treasuryPapaAvaxPOL = mv_rfv[9]
-    pm.treasuryInvestments = mv_rfv[10]
 
     // Rebase rewards, APY, rebase
     pm.nextDistributedPapa = getNextPAPARebase(blockNumber)
