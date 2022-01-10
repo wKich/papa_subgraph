@@ -31,7 +31,8 @@ import {getPAPAUSDRate, getDiscountedPairUSD, getPairUSD, getAVAXUSDRate} from '
 
 
 export function loadOrCreateProtocolMetric(blockNumber: BigInt, timestamp: BigInt): ProtocolMetric {
-    let id = blockNumber.minus(blockNumber.mod(BigInt.fromString("16000")));
+  // Around 4 hours for avalanche network
+    let id = blockNumber.minus(blockNumber.mod(BigInt.fromString("10000")));
 
     let protocolMetric = ProtocolMetric.load(id.toString())
     if (protocolMetric == null) {
@@ -282,7 +283,8 @@ export function updateProtocolMetrics(blockNumber: BigInt, timestamp: BigInt): v
 
 export function handleBlock(block: ethereum.Block): void {
     let lastBlock = LastBlock.load('0')
-    if (lastBlock == null || block.number.minus(lastBlock.number).gt(BigInt.fromString('300'))) {
+    // Around 5 minutes in avalanche network (1 block per ~1.5 seconds)
+    if (lastBlock == null || block.number.minus(lastBlock.number).gt(BigInt.fromString('200'))) {
         lastBlock = new LastBlock('0')
         lastBlock.number = block.number
         lastBlock.timestamp = block.timestamp
